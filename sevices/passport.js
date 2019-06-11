@@ -25,17 +25,17 @@ passport.use(
       callbackURL: '/auth/google/callback',
       proxy: true
     },
-    (accessToken, refreshToken, profile, done) => {
-      User.findOne({ googleId: profile.id })
-        .then((existingUser) => {
-          if (existingUser) done(null, existingUser)
-          else {
-            new User({ googleClientID: profile.id })
-              .save()
-              .then(user => done(null, user))
-          }
-        })
-        .catch(e => console.log('Error occured at Passport using GoogleStrategy :', e))
+    async (accessToken, refreshToken, profile, done) => {
+      try {
+        const existingUser = await User.findOne({ googleId: profile.id })
+        if (existingUser) done(null, existingUser)
+        else {
+          const user = await new User({ googleClientID: profile.id }).save()
+          done(null, user)
+        }
+      } catch (e) {
+        console.log('Error occured at Passport using GoogleStrategy :', e)
+      }
     }
   )
 )
