@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cookieSession = require('cookie-session')
 const passport = require('passport')
+const bodyParser = require('body-parser')
 const keys = require('./config/keys')
 // define user model in mongoDB
 require('./models/User')
@@ -15,6 +16,7 @@ mongoose.connect(keys.mongoURI, { useNewUrlParser: true })
 
 const app = express()
 
+app.use(bodyParser.json())
 app.use(
   cookieSession({
     // we want this cookie to last 30 days
@@ -27,6 +29,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 require('./routes/authRoutes')(app)
+require('./routes/billingRoute')(app)
 
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production asssets
