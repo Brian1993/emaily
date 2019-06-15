@@ -15,4 +15,4 @@ const surveySchema = new Schema({
   lastResponded: Date
 })
 
-module.exports = { name: 'survey', schema: surveySchema }
+module.exports = { name: 'surveys', schema: surveySchema }
