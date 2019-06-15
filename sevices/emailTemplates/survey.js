@@ -1,3 +1,5 @@
+const keys = require('../../config/keys')
+
 module.exports = survey => {
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -389,8 +391,9 @@ module.exports = survey => {
                                                                     <td class="pc-fb-font" style="text-align: center; line-height: 34px; font-family: 'Fira Sans', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -0.4px; color: #ffffff;" valign="top">
                                                                     <a 
                                                                       style="text-decoration: none; color: white;"
-                                                                      href='http://localhost:3000'
-                                                                    >Yes
+                                                                      href='${keys.redirectDomain}/api/surveys/thanks'
+                                                                    >
+                                                                    Yes
                                                                     </a>
                                                                     </td>
                                                                   </tr>
@@ -469,7 +472,7 @@ module.exports = survey => {
                                                                     <td class="pc-fb-font" style="text-align: center; line-height: 34px; font-family: 'Fira Sans', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -0.4px; color: #ffffff;" valign="top">
                                                                     <a 
                                                                     style="text-decoration: none; color: white;"
-                                                                    href='http://localhost:3000'
+                                                                    href='${keys.redirectDomain}/api/surveys/thanks'
                                                                     >
                                                                      No
                                                                     </a>

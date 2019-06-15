@@ -5,7 +5,6 @@ const { mail: helper } = sendGrid
 class Mailer extends helper.Mail {
   constructor ({ subject, recipients }, content) {
     super()
-    console.log('recipients:', recipients)
     this.sgApi = sendGrid(keys.sendGridKey)
     this.from_email = new helper.Email('no-reply@emaily.com')
     this.subject = subject
@@ -19,7 +18,6 @@ class Mailer extends helper.Mail {
 
   formatAddresses (recipients)  {
     return recipients.map(({ email }) => {
-      console.log(email)
       return new helper.Email(email)
     })
   }
