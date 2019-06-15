@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const keys = require('./config/keys')
 // define user model in mongoDB
 require('./models/User')
+require('./models/Survey')
 // pull out user model
 require('./sevices/passport')
 
