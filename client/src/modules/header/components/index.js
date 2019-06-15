@@ -17,7 +17,7 @@ class Header extends Component {
               <>
                 <li className='mr-2'>
                   <button 
-                    class="btn btn-primary my-2 my-sm-0"
+                    className="btn btn-primary my-2 my-sm-0"
                   >
                     <h5>Credit: {credit}</h5>
                   </button>
@@ -69,7 +69,7 @@ Header.propTypes = {
 
 function selector (state) {
   return {
-    user: state.auth.user
+    user: state.auth.user || {}
   }
 }
 

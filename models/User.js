@@ -6,4 +6,4 @@ const userSchema = new Schema({
   credit: { type: Number, default: 0 }
 })
 
-mongoose.model('user', userSchema)
+module.exports = { name: 'user', schema: userSchema }

@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import logger from 'redux-logger'
+import { createLogger } from 'redux-logger'
 import App from './App'
 import reducers from './reducer'
+
+const logger = createLogger({
+  collapsed: true
+})
 
 const store = createStore(
   reducers,

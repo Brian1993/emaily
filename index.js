@@ -1,36 +1,22 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const cookieSession = require('cookie-session')
-const passport = require('passport')
-const bodyParser = require('body-parser')
-const keys = require('./config/keys')
-// define user model in mongoDB
-require('./models/User')
-require('./models/Survey')
+const initModels = require('./models')
+const initDB = require('./db')
+const { initMiddleWare } = require('./middlewares')
+const initRoute = require('./routes')
+
+initModels(mongoose)
 // pull out user model
 require('./sevices/passport')
 
-console.log('conneting MongoDB')
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true })
-  .then(res => console.log('DB connected'))
-  .catch(err => console.log('DB connect fail: ', err))
+initDB(mongoose)
 
 const app = express()
 
-app.use(bodyParser.json())
-app.use(
-  cookieSession({
-    // we want this cookie to last 30 days
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
-)
+initMiddleWare(app)
 
-app.use(passport.initialize())
-app.use(passport.session())
+initRoute(app)
 
-require('./routes/authRoutes')(app)
-require('./routes/billingRoute')(app)
 
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production asssets
@@ -38,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
 
   // Express will serve up the index.html file
-  // if it doesn;t recogonize the route
+  // if it doesn't recogonize the route
   const path = require('path')
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
