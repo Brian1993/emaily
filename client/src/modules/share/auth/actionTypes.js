@@ -1,4 +1,4 @@
-import { keyMirror } from '../../utils'
+import { keyMirror } from 'utils'
 
 const actionTypeList = [
   'SET_USER'

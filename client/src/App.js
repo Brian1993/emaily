@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Header } from './modules/header'
 import { Landing } from './modules/landing'
-import { fetchUser } from './modules/auth/thunk'
+import { fetchUser } from 'share/auth/thunk'
 const DashBoard = () => <h2>DashBoard</h2>
 const SurveyNew = () => <h2>SurveyNew</h2>
 

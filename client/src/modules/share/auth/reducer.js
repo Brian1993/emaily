@@ -1,4 +1,4 @@
-import { createSwitch } from '../../utils'
+import { createSwitch } from 'utils'
 import ACTION_TYPES from './actionTypes'
 
 const instialState = {

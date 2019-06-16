@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { authReducer } from './modules/auth'
+import { authReducer } from 'share/auth'
 
 export default combineReducers({
   auth: authReducer

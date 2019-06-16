@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
-import { handleToken } from '../../auth/thunk'
+import { handleToken } from 'share/auth/thunk'
 class Payment extends Component {
   render () {
     const { handleToken } = this.props
