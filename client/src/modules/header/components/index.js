@@ -15,7 +15,7 @@ class Header extends Component {
           !_.isEmpty(this.props.user)
           ? (
               <>
-                <li className='mr-2 col-sm-12'>
+                <li className='mr-2'>
                   <button 
                     className="btn btn-primary my-2 my-sm-0"
                   >
@@ -43,11 +43,11 @@ class Header extends Component {
   }
 
   render () {
-    const { isLogin } = this.props
+    const { user } = this.props
     return (
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
         <Link
-          to={isLogin ? '/surveys' : '/'}
+          to={user ? '/surveys' : '/'}
           className='navbar-brand'
         >
           Emaily
