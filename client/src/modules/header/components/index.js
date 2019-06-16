@@ -15,7 +15,7 @@ class Header extends Component {
           !_.isEmpty(this.props.user)
           ? (
               <>
-                <li className='mr-2'>
+                <li className='mr-2 col-sm-12'>
                   <button 
                     className="btn btn-primary my-2 my-sm-0"
                   >
