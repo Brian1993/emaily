@@ -6,8 +6,7 @@ import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import App from './App'
 import reducers from './reducer'
-import axios from 'axios'
-window.axios = axios
+
 
 const logger = createLogger({
   collapsed: true

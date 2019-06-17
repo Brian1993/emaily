@@ -83,7 +83,7 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
-  shareModules: resolveApp('src/modules/share'),
+  share: '/Users/brian/Documents/Projects/email-ly.com/Emaily-server/client/src/modules/share',
   utils: resolveApp('src/utils'),
 };
 

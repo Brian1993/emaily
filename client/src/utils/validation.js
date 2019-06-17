@@ -21,8 +21,9 @@ const methodMap = {
 
 const errorMsgMap = {
   notEmpty: 'You must provide a value'
-} 
+}
 
+// TODO: add validate multiple rule
 export function validate (fieldValidationMap, values) {
   const errors = {}
 

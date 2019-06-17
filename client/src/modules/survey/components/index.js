@@ -1,7 +1,7 @@
 import React from 'react'
 import Form from './Form'
 import FormReview from './FormReview'
-
+import { reduxForm } from 'redux-form'
 class Survey extends React.Component {
   state = {
     isShowReview: false
@@ -20,4 +20,6 @@ class Survey extends React.Component {
   }
 }
 
-export default Survey
+export default reduxForm({
+  form: 'surveyForm'
+})(Survey)
