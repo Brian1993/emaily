@@ -1,8 +1,6 @@
 const keys = require('./config/keys')
-const initModels = require('./models')
-const ininDB = (mongoose) => {
-  // initModels(mongoose)
 
+const ininDB = (mongoose) => {
   console.log('conneting MongoDB')
   mongoose.connect(keys.mongoURI, { useNewUrlParser: true })
     .then(res => console.log('DB connected'))

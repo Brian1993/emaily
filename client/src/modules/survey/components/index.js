@@ -12,7 +12,7 @@ class Survey extends React.Component {
       <div>
         {
           this.state.isShowReview 
-          ? <FormReview />
+          ? <FormReview onCancel={() => this.setState({ isShowReview: false })} />
           : <Form onSurveySubmit={() => this.setState({ isShowReview: true })} />
         }
       </div>

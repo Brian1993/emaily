@@ -17,7 +17,6 @@ initMiddleWare(app)
 
 initRoute(app)
 
-
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production asssets
   // like our main.js file or main.css file
