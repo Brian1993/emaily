@@ -11,9 +11,10 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev-backend": "concurrently \"npm run server\" \" npm run webhook\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "webhook": "forever sendgrid_webhook.js"
+    "webhook": "ssh -R brianIsAwesom:80:localhost:5000 serveo.net"
   },
   "keywords": [],
   "author": "",
@@ -22,12 +23,13 @@
     "body-parser": "^1.19.0",
     "cookie-session": "^1.3.3",
     "express": "^4.17.1",
-    "localtunnel": "^1.9.2",
+    "lodash": "^4.17.11",
     "mongodb": "^3.2.7",
     "mongoose": "^5.5.14",
     "nodemon": "^1.19.1",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^2.0.0",
+    "path-parser": "^4.2.0",
     "sendgrid": "^5.2.3",
     "stripe": "^7.1.0"
   },

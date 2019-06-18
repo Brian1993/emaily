@@ -1,3 +1,6 @@
+const _ = require('lodash')
+const { Path } = require('path-parser')
+const { URL } = require('url')
 const mongoose = require('mongoose')
 const { checkLogin, checkCredits } = require('../middlewares')
 
@@ -5,13 +8,30 @@ const Mailer = require('../sevices/Mailer')
 const Survey = mongoose.model('surveys')
 const surveyTemplate = require('../sevices/emailTemplates/survey')
 
+
+
 module.exports = app => {
   app.get('/api/surveys/thanks', (req, res) => {
     res.send('Thanks for voting!')
   })
 
   app.post('/api/surveys/webhooks', (req, res) => {
-    console.log(req.body)
+    const pathObj = new Path('/api/surveys/:surveyId/:choice')
+    // TODO: 回傳結果有問題需修正，請檢查 chain 有沒有問題
+    const events = _.chain(req.body)
+      .map(({ email, url }) => {
+        const match = pathObj.test(new URL(url).pathname)
+        if (match) return {
+          email,
+          surveyId: match.surveyId,
+          choice: match.choice
+        }
+      })
+      .compact()
+      .uniqBy('email', 'surveyId')
+      .value()
+    
+      console.log(events)
     res.send({})
   })
 
