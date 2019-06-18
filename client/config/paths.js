@@ -65,6 +65,7 @@ const resolveModule = (resolveFn, filePath) => {
   return resolveFn(`${filePath}.js`);
 };
 
+
 // config after eject: we're in ./config/
 module.exports = {
   dotenv: resolveApp('.env'),
@@ -83,7 +84,7 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
-  share: '/Users/brian/Documents/Projects/email-ly.com/Emaily-server/client/src/modules/share',
+  share: resolveApp('src/modules/share'),
   utils: resolveApp('src/utils'),
 };
 
