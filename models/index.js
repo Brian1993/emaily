@@ -1,7 +1,6 @@
 const userSchema  = require('./User')
 const surveySchema = require('./Survey')
 
-
 function loadSchema () {
   return [
     userSchema,
