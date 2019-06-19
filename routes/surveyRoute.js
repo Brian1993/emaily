@@ -1,5 +1,5 @@
 const _ = require('lodash')
-const { Path } = require('path-parser')
+const Path = require('path-parser').default
 const { URL } = require('url')
 const mongoose = require('mongoose')
 const { checkLogin, checkCredits } = require('../middlewares')
@@ -8,36 +8,28 @@ const Mailer = require('../sevices/Mailer')
 const Survey = mongoose.model('surveys')
 const surveyTemplate = require('../sevices/emailTemplates/survey')
 
-
-
 module.exports = app => {
   app.get('/api/surveys/thanks', (req, res) => {
     res.send('Thanks for voting!')
   })
 
   app.post('/api/surveys/webhooks', (req, res) => {
-    const pathObj = new Path('/api/surveys/:surveyId/:choice')
-    // TODO: 回傳結果有問題需修正，請檢查 chain 有沒有問題
-    const events = _.chain(req.body)
+    const path = new Path('/api/surveys/:surveyId/:choice')
+    const event = _.chain(req.body)
       .map(({ email, url }) => {
-        const match = pathObj.test(new URL(url).pathname)
-        if (match) return {
-          email,
-          surveyId: match.surveyId,
-          choice: match.choice
-        }
+        // ex: 5a3rt54ee/yes
+        const pathname = new URL(url).pathname
+        const match = path.test(pathname)
+        if (match) return { email, surveyId: match.surveyId, choice: match.choice }
       })
       .compact()
       .uniqBy('email', 'surveyId')
       .value()
-    
-      console.log(events)
     res.send({})
   })
 
   app.post('/api/surveys', checkLogin, checkCredits, async (req, res) => {
     const { title, subject, body, recipients } = req.body
-
     const survey = new Survey({
       title,
       subject,
@@ -56,6 +48,7 @@ module.exports = app => {
 
       res.send(user)
     } catch (e) {
+      console.error('Mail Sending error occured at: ', e)
       res.status(422).send(e)
     }
   })
