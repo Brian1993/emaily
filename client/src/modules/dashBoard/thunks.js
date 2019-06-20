@@ -1,4 +1,5 @@
 import * as actions from './actions'
+import axios from 'axios'
 
 /**
  * 取得 survey 列表

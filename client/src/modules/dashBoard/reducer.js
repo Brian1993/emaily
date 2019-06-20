@@ -1,10 +1,12 @@
 import { createSwitch } from 'utils'
 import ACTION_TYPES from './actionTypes'
 
-const instialState = []
+const instialState = {
+  surveys: []
+}
 
-const setSurvey = (state, { payload }) => {
-  return { ...state, ...payload }
+const setSurvey = (state = instialState, { payload }) => {
+  return { ...state, surveys: [ ...state.surveys, ...payload ] }
 }
 
 const switchAction = createSwitch({

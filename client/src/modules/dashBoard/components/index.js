@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import SurveyList from './SurveyList'
 
 const DashBoard = () => {
   const position = { 
@@ -16,7 +17,7 @@ const DashBoard = () => {
   }
   return (
     <div>
-      DashBoard Test01 
+      <SurveyList />
       <div style={position}>
         <Link
           to='/surveys/new'  
