@@ -1,7 +1,7 @@
 import { keyMirror } from 'utils'
 
 const actionTypeList = [
-  'SUMIT_SURVEY'
+  'SET_SURVEYS'
 ]
 
 const ACTION_TYPES = keyMirror(actionTypeList)
