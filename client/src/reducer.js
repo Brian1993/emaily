@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import { authReducer } from 'share/auth'
-import { surveyReducer } from './modules/survey'
+import { dashBoardReducer } from './modules/dashBoard'
 
 export default combineReducers({
   auth: authReducer,
   form: formReducer,
-  surveys: surveyReducer
+  dashBoard: dashBoardReducer
 })

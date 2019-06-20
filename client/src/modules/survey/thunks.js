@@ -1,6 +1,5 @@
 import axios from 'axios'
 import * as authActions from 'share/auth/actions'
-import * as actions from './actions'
 
 /**
  * 送出用戶發起的 survey 至 backend
@@ -18,17 +17,5 @@ export const submitSurvey = (surveyData, history) => async (dispatch) => {
     dispatch(authActions.setUser(data))
   } catch (e) {
     console.error('error occured at submitSurvey', e)
-  }
-}
-
-/**
- * 
- */
-export const fetchSurvey = () => async (dispatch) => {
-  try {
-    const { data } = await axios.get('/api/surveys')
-    dispatch(actions.setSurvey(data))
-  } catch (e) {
-    console.error('error occured at fetchSurvey', e)
   }
 }
