@@ -16,14 +16,14 @@ class Mailer extends helper.Mail {
     this.addRecipients()
   }
 
-  formatAddresses (recipients)  {
+  formatAddresses (recipients) {
     return recipients.map(({ email }) => {
       return new helper.Email(email)
     })
   }
 
-  addClickTracking() {
-    const trackingSettings = new helper.TrackingSettings();
+  addClickTracking () {
+    const trackingSettings = new helper.TrackingSettings()
     const clickTracking = new helper.ClickTracking(true, true)
 
     trackingSettings.setClickTracking(clickTracking)
@@ -31,7 +31,7 @@ class Mailer extends helper.Mail {
   }
 
   addRecipients () {
-    const personalize = new helper.Personalization();
+    const personalize = new helper.Personalization()
     this.recipients.forEach(recipient => {
       personalize.addTo(recipient)
     })

@@ -7,21 +7,20 @@ import { validate as validator } from 'utils'
 import { validateEmail } from 'utils/validation'
 import FORM_FIELDS from '../formConfig'
 
-
 class Form extends Component {
   renderFields () {
     return (
       <div className='mt-4'>
         {
           _.map(FORM_FIELDS, ({ label, name }, i) => (
-            <Field 
+            <Field
               key={i}
               label={label}
               type='text'
-              name={name} 
+              name={name}
               component={SurveyField}
             />
-            )
+          )
           )
         }
       </div>
@@ -36,14 +35,14 @@ class Form extends Component {
           {this.renderFields()}
           <div className='row mt-4'>
             <div className='col-6' >
-              <Link to='/surveys' className="btn btn-raised btn-secondary mr-5">
-                <span className="align-middle mr-2">Cancel</span>
-                <i className="fas fa-backspace"></i>
+              <Link to='/surveys' className='btn btn-raised btn-secondary mr-5'>
+                <span className='align-middle mr-2'>Cancel</span>
+                <i className='fas fa-backspace' />
               </Link>
             </div>
-            <div className='col-6'> 
-              <button type="submit" className="btn btn-raised btn-info float-right">
-                <span className="align-middle mr-2">Next</span>
+            <div className='col-6'>
+              <button type='submit' className='btn btn-raised btn-info float-right'>
+                <span className='align-middle mr-2'>Next</span>
                 <i className='fas fa-arrow-right align-middle' />
               </button>
             </div>
@@ -60,15 +59,12 @@ function validate (values) {
     title: ['notEmpty'],
     subject: ['notEmpty'],
     body: ['notEmpty'],
-    emails: ['notEmpty']
+    emails: ['notEmpty', 'validateEmailList']
   }
   errors = { ...validator(validationMap, values) }
-  const emailError  = validateEmail(values.recipients)
-  if (emailError) errors.emails =  emailError
 
   return errors
 }
-
 
 const form = {
   validate,
