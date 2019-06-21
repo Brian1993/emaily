@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropsType from 'prop-types'
 import { Link } from 'react-router-dom'
 import { reduxForm, Field } from 'redux-form'
 import SurveyField from './Field'
@@ -50,6 +51,13 @@ class Form extends Component {
       </div>
     )
   }
+}
+
+Form.propTypes = {
+  // callback function from parent components
+  onSurveySubmit: PropsType.func.isRequired,
+  // form sumbit function from redux-form
+  handleSubmit: PropsType.func.isRequired
 }
 
 function validate (values) {

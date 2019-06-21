@@ -1,4 +1,5 @@
 import React from 'react'
+import PropsType from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import _ from 'lodash'
@@ -44,6 +45,17 @@ const FormReview = ({ onCancel, formValues, submitSurvey, history }) => {
       </div>
     </form>
   )
+}
+
+FormReview.propTypes = {
+  // callback function from parent component to rediect to last step
+  onCancel: PropsType.func.isRequired,
+  // formValues form redux-form
+  formValues: PropsType.object.isRequired,
+  // submit survey action
+  submitSurvey: PropsType.func.isRequired,
+  // history object from withRouter
+  history: PropsType.func.isRequired
 }
 
 function selector (state) {
