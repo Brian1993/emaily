@@ -4,7 +4,6 @@ import { reduxForm, Field } from 'redux-form'
 import SurveyField from './Field'
 import _ from 'lodash'
 import { validate as validator } from 'utils'
-import { validateEmail } from 'utils/validation'
 import FORM_FIELDS from '../formConfig'
 
 class Form extends Component {
@@ -54,15 +53,13 @@ class Form extends Component {
 }
 
 function validate (values) {
-  let errors = {}
   const validationMap = {
     title: ['notEmpty'],
     subject: ['notEmpty'],
     body: ['notEmpty'],
     emails: ['notEmpty', 'validateEmailList']
   }
-  errors = { ...validator(validationMap, values) }
-
+  let errors = { ...validator(validationMap, values) }
   return errors
 }
 
