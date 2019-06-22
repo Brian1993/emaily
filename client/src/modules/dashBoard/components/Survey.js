@@ -9,11 +9,17 @@ const survey = (props) => {
       <div className='card-header'>
         {title}
       </div>
-      <div className='card-body'>
-        <h5 className='card-title'>{subject}</h5>
-        <p className='card-text'>{body}</p>
-        <a className='btn btn-primary btn-outline-light'>Yes: {yes}</a>
-        <a className='btn btn-primary'>No: {no}</a>
+      <div className='card-body row'>
+        <div className='col-6'>
+          <h5 className='card-title'>Subject: {subject}</h5>
+          <p className='card-text'>Content: {body}</p>
+        </div>
+        <div className='col-6'>
+          <div className='col-6 ml-auto'>
+            <button className='btn btn-primary btn-outline-light mr-2'>No: {no}</button>
+            <button className='btn btn-primary btn-outline-light'>Yes: {yes}</button>
+          </div>
+        </div>
       </div>
       <div className='card-footer'>
         <small className='text-muted'>Date Sent:  {sentDate}</small>

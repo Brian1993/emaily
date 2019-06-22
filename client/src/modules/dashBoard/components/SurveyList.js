@@ -11,12 +11,10 @@ class SurveyList extends Component {
   }
 
   renderSurveys () {
-    console.log(this.props.surveys)
-    return _.map(this.props.surveys, (survey, i) =>  <Survey key={i} survey={survey} /> )
+    return _.map(this.props.surveys.reverse(), (survey, i) =>  <Survey key={i} survey={survey} /> )
   }
 
   render () {
-    console.log('SurveyList!')
     return (
       <div className='pd-2'>
         {this.renderSurveys()}
