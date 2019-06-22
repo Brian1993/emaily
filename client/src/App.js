@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Header } from './modules/header'
 import { Landing } from './modules/landing'
 import { DashBoard } from './modules/dashBoard'
-import { SurveyNew } from './modules/survey'
+import { SurveyNew } from './modules/surveyForm'
 import { fetchUser } from 'share/auth/thunk'
 
 class App extends Component {
@@ -13,10 +13,10 @@ class App extends Component {
   }
   render () {
     return (
-      <div className='container'>
+      <div >
         <Router>
-          <div>
-            <Header />
+          <Header />
+          <div className='container'>
             <Route path='/' exact component={Landing} />
             <Route path='/surveys' exact component={DashBoard} />
             <Route path='/surveys/new' exact component={SurveyNew} />

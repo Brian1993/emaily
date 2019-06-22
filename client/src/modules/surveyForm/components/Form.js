@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { reduxForm, Field } from 'redux-form'
 import SurveyField from './Field'
 import _ from 'lodash'
-import { validate as validator } from 'utils'
+import { validator } from 'utils'
 import FORM_FIELDS from '../formConfig'
 
 class Form extends Component {
@@ -65,7 +65,7 @@ function validate (values) {
     title: ['notEmpty'],
     subject: ['notEmpty'],
     body: ['notEmpty'],
-    emails: ['notEmpty', 'validateEmailList']
+    recipients: ['notEmpty', 'validateEmailList']
   }
   let errors = { ...validator(validationMap, values) }
   return errors

@@ -16,8 +16,8 @@ const Field = ({ input, label, meta: { error, touched } }) => {
 }
 
 Field.propTypes = {
-  // field input
-  input: PropsType.string.isRequired,
+  // input property from redux-form ex: name, onChange
+  input: PropsType.object.isRequired,
   // field label
   label: PropsType.string.isRequired,
   // redux-form field property

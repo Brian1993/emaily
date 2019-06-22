@@ -55,7 +55,7 @@ FormReview.propTypes = {
   // submit survey action
   submitSurvey: PropsType.func.isRequired,
   // history object from withRouter
-  history: PropsType.func.isRequired
+  history: PropsType.object.isRequired
 }
 
 function selector (state) {

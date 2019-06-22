@@ -5,8 +5,6 @@ const { checkLogin } = require('../middlewares')
 module.exports = app => {
   app.post('/api/stripe', checkLogin, async (req, res) => {
     try {
-      if (!req.user) return res.status(401).send({ error: 'You must login!' })
-
       await stripe.charges.create({
         amount: 500,
         currency: 'usd',

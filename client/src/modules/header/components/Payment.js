@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
 import { handleToken } from 'share/auth/thunk'
+
 class Payment extends Component {
   render () {
     const { handleToken } = this.props
@@ -26,6 +27,7 @@ class Payment extends Component {
 Payment.propTypes = {
   handleToken: PropTypes.func.isRequired
 }
+
 const actions = {
   handleToken
 }
