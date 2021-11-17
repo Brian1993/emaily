@@ -1,7 +1,6 @@
 ## Emaily-Brian.com
 Function: user can raise a "Survey" to
 send emails to their clients to collect user feedback
- - Online Demo: https://emaily-brian.herokuapp.com/
 ----
 ### Feature
  - using google OAuth to login
