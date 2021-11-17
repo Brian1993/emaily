@@ -1,4 +1,3 @@
-## Emaily-Brian.com
 Function: user can raise a "Survey" to
 send emails to their clients to collect user feedback
 ----
